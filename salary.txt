@@ -1,6 +1,4 @@
-1
-2
-3
-4
-
-
+vasya - 5000
+mr. T - 777
+president - 6000000
+human - 30000

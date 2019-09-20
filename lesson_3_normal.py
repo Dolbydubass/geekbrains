@@ -4,7 +4,7 @@
 # Запишите результаты в файл salary.txt так, чтобы на каждой строке было 2 столбца,
 # столбцы разделяются пробелом, тире, пробелом. в первом имя, во втором зарплата, например: Vasya - 5000
 # После чего прочитайте файл, выведите построчно имя и зарплату минус 13% (налоги ведь),
-# Есть условие, не отображать людей получающих более зарплату 500000, как именно
+# Есть условие, не отображать людей получающих зарплату более 500000, как именно
 #  выполнить условие решать вам, можете не писать в файл
 # можете не выводить, подумайте какой способ будет наиболее правильным и оптимальным,
 #  если скажем эти файлы потом придется передавать.
@@ -15,21 +15,17 @@ print('Задача 1.')
 
 names = ['vasya', 'mr. T', 'president', 'human']
 salary = [5000, 777, 6000000, 30000]
+report = dict(zip(names, salary))
 
-result = dict(zip(names, salary))
-print(result)
+with open('salary.txt', 'w', encoding='utf-8') as file:  # Записать в файл
+    for (key, value) in report.items():
+        file.write(key + ' - ' + str(value) + '\n')
 
-# with open('salary.txt', 'a+', encoding='utf-8') as file:
-#     file.write('{} - {}'.format(names, salary))
-#     file.seek(0)
-#     print(file.readlines())
-
-
-# for line in file:  # Read file
-#     print(line.strip())
-
-
-
-# nalog = list(map(lambda x: int(x - (x / 100 * 13)), salary))
-
-# print(dict(zip(names, nalog)))
+with open('salary.txt', 'r', encoding='utf-8') as file:  # Открыть файл
+    file.seek(0)
+    for line in file:
+        name, salary = line.split(' - ')
+        salary = int(salary)
+        nalog = salary - (salary / 100 * 13)
+        if salary < 500000:
+            print(name.upper(), ' - ', int(nalog))
