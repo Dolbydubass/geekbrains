@@ -16,10 +16,10 @@ print(res)
 # Даны два списка фруктов.
 # Получить список фруктов, присутствующих в обоих исходных списках.
 
-fruits_daily = ['яблоко', 'груша', 'апельсин']
-fruits_exotic = ['ананас', 'банан', 'киви']
+fruits_a = ['яблоко', 'груша', 'апельсин', 'киви', 'банан']
+fruits_b = ['ананас', 'банан', 'киви']
 
-fruits = [i for i in fruits_daily + fruits_exotic]
+fruits = [i for i in fruits_a if i in fruits_b]
 
 print(fruits)
 
