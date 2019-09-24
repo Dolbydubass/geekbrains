@@ -8,7 +8,7 @@
 import re
 
 
-pattern_name = '^[A-ZА-Я]'
+pattern_name = '^[A-Z]{1}[a-z]+[^A-Z]'
 pattern_email = '[a-z_0-9]+@[a-zA-Z0-9]+\.(ru|org|com)'
 
 name = input('Введите имя: ')
