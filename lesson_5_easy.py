@@ -3,7 +3,7 @@
 # из которой запущен данный скрипт.
 # И второй скрипт, удаляющий эти папки.
 import os
-
+import sys
 
 def new_folders():
     return [os.mkdir('dir_' + str(i)) for i in range(1, 10)]
@@ -24,5 +24,5 @@ def show_folders():
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
 
 def copy_file():
-    path = os.getcwd()
-    return os.system('cp test.py test_copy.py')
+    file = os.path.basename(*sys.argv)
+    return os.system('cp {} copy_{}'.format(file, file))
