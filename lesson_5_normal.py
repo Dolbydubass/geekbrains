@@ -33,12 +33,20 @@ def folder_manager_choice(choice):
         else:
             print(*empty)
     elif choice == 3:
-        print('in progress')
+        i = input('Введите название папки: ')
+        if i in show_folders():
+            os.removedirs(str(i))
+            print('Успешно удалена папка {}'.format(i))
+        else:
+            print('Невозможно удалить папку {}'.format(i))
     elif choice == 4:
-        # print("current dir = ", os.path.dirname(__file__))
-        # print(os.getcwd())
-        # print(sys.argv)
-        print('in progress')
+        i = input('Введите название папки: ')
+        if i not in show_folders():
+            os.mkdir(str(i))
+            print('Успешно создана папка {}'.format(i))
+        else:
+            print('Невозможно создать папку {}'.format(i))
+
 
 def folder_manager():
     while True:
@@ -56,4 +64,6 @@ def folder_manager():
 
 folder_manager()
 
-
+# print("current dir = ", os.path.dirname(__file__))
+# print(os.getcwd())
+# print(sys.argv)
