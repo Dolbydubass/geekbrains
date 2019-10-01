@@ -63,7 +63,3 @@ def folder_manager():
         folder_manager_choice(choice)
 
 folder_manager()
-
-# print("current dir = ", os.path.dirname(__file__))
-# print(os.getcwd())
-# print(sys.argv)
